@@ -1,0 +1,11 @@
+1
+00:00:00,000 --> 00:00:01,000
+CDR: Roger
+
+2
+00:00:01,000 --> 00:00:14,000
+CC: Tranquility, Houston. I was going to give you a time
+hack on the S band, but apparently the antenna doesn't quite
+hack it on that. Request P00 and ACCEPT, and I'll tell the
+time.
+
