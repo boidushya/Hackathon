@@ -8,12 +8,13 @@ from pydub import AudioSegment
 from moviepy.video.tools.subtitles import SubtitlesClip
 import os
 from astronautVoice import generateSpeech
+import textwrap
 
 class generator:
 
 	def __init__(self):
 		collections = self.generate()
-		for i in collections:
+		for i in collections[:8]:
 			model = generateSpeech(i["author"],i["text"])
 			model.dlVoice()
 		self.video()
@@ -96,7 +97,14 @@ class generator:
 		video = final_clip.set_audio(audioclip).set_duration(totalDuration)
 		video.write_videofile("nice.mp4")
 		for file in files:
-			os.remove(file)
+			try:
+				os.remove(file)
+			except:
+				pass
+		for file in os.listdir("./Voice"):
+			os.remove("./Voice/"+file)
+		with open("./Voice/data.json","w") as f:
+			f.write("[]")
 
 if __name__ == '__main__':
 	box = generator()

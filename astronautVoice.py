@@ -88,7 +88,7 @@ class generateSpeech:
 		driver.get(url)
 		upload = WebDriverWait(driver,20).until(EC.presence_of_element_located((By.XPATH,"/html/body/main/div[3]/div[1]/div/div[2]/div/div[1]/input")))
 		upload.send_keys(os.getcwd()+"/temp.mp3")
-		audio = WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH,"//*[@id=\"output-audio-tag\"]")))
+		audio = WebDriverWait(driver,120).until(EC.element_to_be_clickable((By.XPATH,"//*[@id=\"output-audio-tag\"]")))
 		WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH,"//*[@id=\"download-output-audio-link\"]/button"))).click()
 		while True:
 			if os.path.exists("output.wav"):
